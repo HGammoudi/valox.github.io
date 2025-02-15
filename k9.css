@@ -1,83 +1,109 @@
 body {
-    background-color: rgb(231, 231, 231);
+    background-color: rgb(28, 28, 28); /* Dark gray background for the body */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white; /* White text for contrast against dark background */
 }
 
 h2 {
-    color: rgb(255, 212, 19);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(255, 255, 255); /* White text for headings */
     text-align: center;
+    font-size: 24px;
+    margin-top: 20px;
 }
 
 h3 {
-    color: rgb(255, 160, 19);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(200, 200, 200); /* Lighter gray for subheadings */
+    text-align: center;
+    font-size: 20px;
+    margin-top: 20px;
 }
-
 
 .centerimage {
     display: block;
-    margin-left: 46%;
-    
-    
-  }
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    height: auto;
+}
 
 .center {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
-  }
+    width: 60%;
+}
 
 form {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Aligns text fields to the left */
-    
+    align-items: flex-start;
+    padding: 20px;
+    background-color: rgb(40, 40, 40); /* Dark gray background for the form */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Subtle dark shadow for depth */
+    margin-top: 20px;
+    width: 100%;
+    max-width: 800px;
 }
 
 label {
     font-weight: bold;
     margin-top: 10px;
+    margin-bottom: 5px;
+    color: rgb(220, 220, 220); /* Light gray labels */
 }
 
 input[type="text"],
 textarea {
-    width: 100%; /* Make all text fields the same width */
+    width: 100%;
     padding: 8px;
     margin-top: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid #444; /* Dark border for inputs */
     border-radius: 5px;
+    background-color: rgb(50, 50, 50); /* Slightly lighter dark gray for input fields */
+    color: white; /* White text inside inputs */
+    font-size: 14px;
 }
 
 textarea {
-    height: 100px; /* Adjust text area height */
-    resize: vertical; /* Allows vertical resizing */
+    height: 100px;
+    resize: vertical;
 }
 
 input[type="checkbox"] {
     margin-right: 5px;
-    
 }
 
 .checkbox-group {
     display: flex;
     flex-direction: column;
     margin-top: 5px;
-    
 }
 
-button {
+.collapse {
+    background-color: rgb(60, 60, 60); /* Darker background for collapsible sections */
+    color: white;
+    cursor: pointer;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.button {
     margin-top: 15px;
     padding: 10px;
-    background-color: #007bff;
+    background-color: #007bff; /* Blue button */
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
 }
 
-button:hover {
-    background-color: #0056b3;
+.button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
 }
 
 .popup {
@@ -86,7 +112,7 @@ button:hover {
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: #4CAF50;
+    background-color: #4CAF50; /* Green popup background */
     color: white;
     padding: 10px 20px;
     border-radius: 5px;
@@ -96,3 +122,26 @@ button:hover {
     transition: opacity 0.5s ease-in-out;
 }
 
+/* For the generated BBCode output section */
+#bbcodeOutput {
+    width: 80%;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: rgb(60, 60, 60); /* Dark background for BBCode output */
+    border: 1px solid #444; /* Dark border */
+    border-radius: 5px;
+    font-family: monospace;
+    font-size: 14px;
+    color: white; /* White text for BBCode */
+}
+
+/* Ensure proper responsive design */
+@media screen and (max-width: 768px) {
+    .center {
+        width: 80%;
+    }
+    
+    form {
+        width: 100%;
+    }
+}

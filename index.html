@@ -4,10 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>K9 Panel</title>
-    <link rel="stylesheet" href="k9.css">
+    <link rel="stylesheet" href="index.css">
     <link rel="icon" href="icon.png">
 </head>
-<body>
+<body class="vibe">
     <h2> Welcome to the K-9 Panel!</h2>
+    <div class="sidebar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+
+            <!-- Collapsible Menu -->
+            <li class="collapsible">
+                <a href="javascript:void(0);" class="collapsible-btn">Generators ▾</a>
+                <ul class="collapsible-content">
+                    <li><a href="k9.html" target="frame">Deployement Log</a></li>
+                    <li><a href="gen2.html" target="frame">Generator 2</a></li>
+                    <li><a href="gen3.html" target="frame">Generator 3</a></li>
+                </ul>
+            </li>
+
+            <li><a href="" target="frame">Fleet</a></li>
+            <li><a href="" target="frame">Roster</a></li>
+        </ul>
+    </div>   
+    <div class="content"><iframe name="frame" src="" frameborder="0"></iframe></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    const collapsible = document.querySelector(".collapsible");
+    const collapsibleBtn = collapsible.querySelector(".collapsible-btn");
+    const collapsibleContent = collapsible.querySelector(".collapsible-content");
+
+    collapsibleBtn.addEventListener("click", function () {
+        if (collapsibleContent.style.maxHeight) {
+            // Menu is open — collapse it
+            collapsibleContent.style.maxHeight = null;
+        } else {
+            // Menu is closed — expand it
+            collapsibleContent.style.maxHeight = collapsibleContent.scrollHeight + "px";
+        }
+    });
+});
+    </script>
 </body>
 </html>
