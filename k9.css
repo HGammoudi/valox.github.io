@@ -1,0 +1,98 @@
+body {
+    background-color: rgb(231, 231, 231);
+}
+
+
+h2 {
+    color: rgb(255, 212, 19);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
+h3 {
+    color: rgb(255, 160, 19);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.centerimage {
+    display: block;
+    margin-left: 46%;
+    
+    
+  }
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Aligns text fields to the left */
+    
+}
+
+label {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+input[type="text"],
+textarea {
+    width: 100%; /* Make all text fields the same width */
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+textarea {
+    height: 100px; /* Adjust text area height */
+    resize: vertical; /* Allows vertical resizing */
+}
+
+input[type="checkbox"] {
+    margin-right: 5px;
+    
+}
+
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+    
+}
+
+button {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.popup {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
