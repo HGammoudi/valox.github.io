@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valox's K9 Generator</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="k9.css">
+    <link rel="icon" href="icon.png">
+</head>
+<body>
+    <h2 class="center">Senora Station Canine Team Deployment Report</h2> <img src="https://i.imgur.com/Q2JgKiN.png" alt="" id="dvsk9" class="centerimage">
+    <form id="bbcodeForm" class="center">
+        <label>Time and Date:</label>
+        <input type="text" id="timeDate" placeholder="DD/MMM/YYYY"><br><br>
+        
+        <label>Location:</label>
+        <input type="text" id="location" placeholder="Street, Area, City"><br><br>
+        
+        <label>Callsign:</label>
+        <input type="text" id="callsign" placeholder="280K90"><br><br>
+        
+        <label>Deployment Type:</label><br>
+        <table>
+            <td>
+                <input type="checkbox" class="deployType" value="Patrol"> Patrol<br>
+                <input type="checkbox" class="deployType" value="Bite"> Bite<br>
+                <input type="checkbox" class="deployType" value="Search Warrant"> Search Warrant<br>
+                <input type="checkbox" class="deployType" value="Tracking"> Tracking<br>
+                <input type="checkbox" class="deployType" value="Jail Deployment"> Jail Deployment<br>
+                <input type="checkbox" class="deployType" value="Other"> Other (Please detail in the narrative)<br><br>
+            </td>
+        </table>
+
+        <label>Deployment Narrative:</label><br>
+        <textarea id="narrative" placeholder="FILL IN THE NARRATIVE HERE"></textarea><br><br>
+        
+        <label>Evidence Found:</label><br>
+        <textarea id="evidence" placeholder="LIST THE EVIDENCE HERE"></textarea><br><br>
+        
+        <label>Signed by:</label>
+        <input type="text" id="signedBy" placeholder="FIRSTNAME LASTNAME, RANK"><br><br>
+
+        <label>Review and signed by (Command only):</label>
+        <input type="text" id="signedCmd" placeholder="COMMAND MEMBER HERE"><br><br>
+        
+        <button type="button" id="generateBBCode" class="button">Generate BBCode</button>
+        <button type="button" id="copyBBCode" class="button">Copy to Clipboard</button>
+        <div id="popupMessage" class="popup">BBCode copied to clipboard!</div>
+
+    </form>
+    
+    <div class="center">
+    <h3>Generated BBCode:</h3>
+    <textarea id="bbcodeOutput" rows="10" cols="50"></textarea>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#generateBBCode').click(function() {
+                let timeDate = $('#timeDate').val();
+                let location = $('#location').val();
+                let callsign = $('#callsign').val();
+                let narrative = $('#narrative').val();
+                let evidence = $('#evidence').val();
+                let signedBy = $('#signedBy').val();
+                let signedCmd = $('#signedCmd').val();
+                
+                let deploymentTypes = [];
+                $('.deployType').each(function() {
+                if ($(this).is(':checked')) {
+                    deploymentTypes.push(`[cbc][/cbc]${$(this).val()}`);
+                } else {
+                     deploymentTypes.push(`[cb][/cb]${$(this).val()}`);
+                 }
+            });
+
+                let bbcode = `[divbox=white]\n` +
+                             `[center][img]https://i.imgur.com/Q2JgKiN.png[/img][/center]\n` +
+                             `[b][u][center]]Canine Services Detail Deployment Report[/center][/u][/b]\n\n` +
+                             `[center][table=Arial]\n` +
+                             `[tr][td][b]TIME AND DATE:[/b][/td][td][b]LOCATION:[/b][/td][td][b]CALLSIGN:[/b][/td][/tr]\n` +
+                             `[tr][td]${timeDate}[/td][td]${location}[/td][td]${callsign}[/td][/tr]\n` +
+                             `[/table][/center]\n\n` +
+                             `[divbox=white]\nDEPLOYMENT TYPE:\n\n` +
+                             deploymentTypes.join('\n') +
+                             `\n\n[hr][/hr]\n\n` +
+                             `[center][b][u]DEPLOYMENT NARRATIVE:[/u][/b][/center]\n\n` +
+                             `${narrative}\n\n[hr][/hr]\n\n` +
+                             `[u][b][center]EVIDENCE FOUND:[/center][/b][/u]\n\n` +
+                             `${evidence}\n\n((ATTACH SCREENSHOT HERE))\n\n` +
+                             `[hr][/hr]\n\n` +
+                             `Signed by:\n${signedBy}\n\n` +
+                             `Reviewed and signed by(Command only): \n[i]${signedCmd}[/i][/divbox]`
+                
+                $('#bbcodeOutput').val(bbcode);
+            });
+
+            $('#copyBBCode').click(function() {
+                let bbcodeOutput = document.getElementById("bbcodeOutput");
+                bbcodeOutput.select();
+                bbcodeOutput.setSelectionRange(0, 99999); 
+                document.execCommand("copy");
+                });
+
+             $('#copyBBCode').click(function() {
+
+                // Show the custom popup
+                let popup = $('#popupMessage');
+                popup.css('display', 'block').animate({ opacity: 1 }, 25); 
+
+                // Hide the popup after 2 seconds
+                setTimeout(function() {
+                popup.css('opacity', '0');
+                setTimeout(() => popup.css('display', 'none'), 500); // Delay hiding for smooth fade-out
+            }, 2000);
+        });
+    });
+    </script>
+</body>
+</html>
