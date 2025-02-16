@@ -60,6 +60,12 @@ h2 {
     padding-left: 25px;
 }
 
+.cover {
+    width: 200px;
+    height: 100px;
+    margin-left: 20px;
+}
+
 /* Main Content */
 .content {
     margin-left: 260px; /* Adjusted for sidebar */
@@ -121,8 +127,4 @@ iframe {
     padding-bottom: 10px;
 }
 
-.cover {
-    width: 200px;
-    height: 100px;
-    margin-left: 20px;
-}
+
