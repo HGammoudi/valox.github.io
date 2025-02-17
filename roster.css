@@ -106,3 +106,8 @@ td {
     margin-right: auto;
     width: 60%;
 }
+
+.table-container {
+    display: flex;
+    gap: 20px; /* Adds spacing between the tables */
+}
