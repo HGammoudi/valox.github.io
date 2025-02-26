@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(28, 28, 28); /* Dark gray background for the body */
+    background: linear-gradient(to top, #1a1a2e, #0b0624); /* Dark gray background for the body */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: white; /* White text for contrast against dark background */
 }

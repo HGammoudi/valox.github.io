@@ -8,11 +8,10 @@
     <link rel="icon" href="homeicon.png">
 </head>
 <body class="vibe">
-    <div id="breadcrumb"><h2> Welcome to the K-9 Panel!</h2></div>
     <div class="sidebar">
-        <img class="cover" src="panelcover.png" alt="panelcover">
+        <img class="cover" src="panelcover.png" alt="panelcover"> <br><br>
         <ul>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="home.html" target="frame">Home</a></li>
             <!-- Collapsible Menu -->
             <li class="collapsible">
                 <a href="javascript:void(0);" class="collapsible-btn">Paperwork Generators ▾</a>
@@ -24,9 +23,11 @@
             </li>
             <li><a href="https://cfmb.booskit.dev" target="frame">Fleet</a></li>
             <li><a href="roster.html" target="frame">Roster</a></li>
+            <hr class="hr">
+            <li><a href="roster.html">Scan</a></li>
         </ul>
     </div>   
-    <div class="content"><iframe name="frame" id="iframeContent" src="" frameborder="0"></iframe></div>
+    <div class="content"><iframe name="frame" id="iframeContent" src="home.html" frameborder="0"></iframe></div>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
