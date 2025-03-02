@@ -146,3 +146,9 @@ iframe {
     margin-top: 15px;
     width: 85%;
 }
+
+.material-icons {
+    vertical-align: middle;
+    font-size: 1rem; /* Adjust size if needed */
+    margin-right: 3px; /* Add spacing between icon and text */
+}
