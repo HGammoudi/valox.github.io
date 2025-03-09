@@ -22,3 +22,9 @@ body {
         opacity: 1;
     }
 }
+
+#box {
+    margin-right: 2px;
+    font-size: 14px;
+    text-shadow: #0b0624;
+}
