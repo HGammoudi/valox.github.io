@@ -23,11 +23,9 @@
         <label>Deployment Type:</label><br>
         <table>
             <td>
-                <input type="checkbox" class="deployType" value="Patrol"> Patrol<br>
                 <input type="checkbox" class="deployType" value="Bite"> Bite<br>
                 <input type="checkbox" class="deployType" value="Search Warrant"> Search Warrant<br>
                 <input type="checkbox" class="deployType" value="Tracking"> Tracking<br>
-                <input type="checkbox" class="deployType" value="Jail Deployment"> Jail Deployment<br>
                 <input type="checkbox" class="deployType" value="Other"> Other (Please detail in the narrative)<br><br>
             </td>
         </table>
@@ -40,9 +38,6 @@
         
         <label>Signed by:</label>
         <input type="text" id="signedBy" placeholder="FIRSTNAME LASTNAME, RANK"><br><br>
-
-        <label>Review and signed by (Command only):</label>
-        <input type="text" id="signedCmd" placeholder="COMMAND MEMBER HERE"><br><br>
         
         <button type="button" id="generateBBCode" class="button">Generate BBCode</button>
         <button type="button" id="copyBBCode" class="button">Copy to Clipboard</button>
@@ -64,7 +59,6 @@
                 let narrative = $('#narrative').val();
                 let evidence = $('#evidence').val();
                 let signedBy = $('#signedBy').val();
-                let signedCmd = $('#signedCmd').val();
                 
                 let deploymentTypes = [];
                 $('.deployType').each(function() {
@@ -75,9 +69,10 @@
                  }
             });
 
+
                 let bbcode = `[divbox=white]\n` +
                              `[center][img]https://i.imgur.com/Q2JgKiN.png[/img][/center]\n` +
-                             `[b][u][center]]Canine Services Detail Deployment Report[/center][/u][/b]\n\n` +
+                             `[b][u][center]]Davis Station Canine Team Deployment Report[/center][/u][/b]\n\n` +
                              `[center][table=Arial]\n` +
                              `[tr][td][b]TIME AND DATE:[/b][/td][td][b]LOCATION:[/b][/td][td][b]CALLSIGN:[/b][/td][/tr]\n` +
                              `[tr][td]${timeDate}[/td][td]${location}[/td][td]${callsign}[/td][/tr]\n` +
@@ -90,8 +85,7 @@
                              `[u][b][center]EVIDENCE FOUND:[/center][/b][/u]\n\n` +
                              `${evidence}\n\n((ATTACH SCREENSHOT HERE))\n\n` +
                              `[hr][/hr]\n\n` +
-                             `Signed by:\n${signedBy}\n\n` +
-                             `Reviewed and signed by(Command only): \n[i]${signedCmd}[/i][/divbox]`
+                             `Signed by:\n${signedBy}\n[/divbox]`;
                 
                 $('#bbcodeOutput').val(bbcode);
             });
