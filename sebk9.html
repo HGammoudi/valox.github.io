@@ -112,36 +112,26 @@
         });
     });
 
-    function setCookie(name, value, days) {
-  const expires = new Date(Date.now() + days * 864e5).toUTCString();
-  document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + expires + '; path=/';
-}
+    function saveName() {
+            const signedBy = document.getElementById('signedBy').value;
+            const callsign = document.getElementById('callsign').value;
 
-// Function to get a cookie
-function getCookie(name) {
-  return document.cookie.split('; ').reduce((r, v) => {
-    const parts = v.split('=');
-    return parts[0] === name ? decodeURIComponent(parts[1]) : r
-  }, '');
-}
+            document.cookie = `signedBy=${signedBy}; max-age=31536000; path=/`;
+            document.cookie = `callsign=${callsign}; max-age=31536000; path=/`;
+        }
 
-// Load cookies and assign to fields
-window.onload = function() {
-  const callsignField = document.getElementById('callsign');
-  const signedByField = document.getElementById('signedBy');
+        function loadName() {
+            const cookies = document.cookie.split('; ').reduce((acc, cookie) => {
+                const [key, value] = cookie.split('=');
+                acc[key] = value;
+                return acc;
+            }, {});
 
-  callsignField.value = getCookie('callsign') || '';
-  signedByField.value = getCookie('signedBy') || '';
+            document.getElementById('signedBy').value = cookies.signedBy || '';
+            document.getElementById('callsign').value = cookies.callsign || '';
 
-  // Save cookies on input
-  callsignField.addEventListener('input', function() {
-    setCookie('callsign', this.value, 365);
-  });
-
-  signedByField.addEventListener('input', function() {
-    setCookie('signedBy', this.value, 365);
-  });
-};
+            updateBBCode();
+        }
     </script>
 </body>
 </html>
