@@ -41,8 +41,6 @@
         <label>Signed by:</label>
         <input type="text" id="signedBy" placeholder="FIRSTNAME LASTNAME, RANK"><br><br>
 
-        <label>Review and signed by (Command only):</label>
-        <input type="text" id="signedCmd" placeholder="COMMAND MEMBER HERE"><br><br>
         
         <button type="button" id="generateBBCode" class="button">Generate BBCode</button>
         <button type="button" id="copyBBCode" class="button">Copy to Clipboard</button>
@@ -64,7 +62,7 @@
                 let narrative = $('#narrative').val();
                 let evidence = $('#evidence').val();
                 let signedBy = $('#signedBy').val();
-                let signedCmd = $('#signedCmd').val();
+                
                 
                 let deploymentTypes = [];
                 $('.deployType').each(function() {
@@ -90,8 +88,7 @@
                              `[u][b][center]EVIDENCE FOUND:[/center][/b][/u]\n\n` +
                              `${evidence}\n\n((ATTACH SCREENSHOT HERE))\n\n` +
                              `[hr][/hr]\n\n` +
-                             `Signed by:\n${signedBy}\n\n` +
-                             `Reviewed and signed by(Command only): \n[i]${signedCmd}[/i][/divbox]`
+                             `Signed by:\n${signedBy}\n[/divbox]`;
                 
                 $('#bbcodeOutput').val(bbcode);
             });
