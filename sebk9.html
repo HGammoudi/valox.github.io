@@ -23,11 +23,9 @@
         <label>Deployment Type:</label><br>
         <table>
             <td>
-                <input type="checkbox" class="deployType" value="Patrol"> Patrol<br>
                 <input type="checkbox" class="deployType" value="Bite"> Bite<br>
                 <input type="checkbox" class="deployType" value="Search Warrant"> Search Warrant<br>
                 <input type="checkbox" class="deployType" value="Tracking"> Tracking<br>
-                <input type="checkbox" class="deployType" value="Jail Deployment"> Jail Deployment<br>
                 <input type="checkbox" class="deployType" value="Other"> Other (Please detail in the narrative)<br><br>
             </td>
         </table>
@@ -74,7 +72,7 @@
             });
 
                 let bbcode = `[divbox=white]\n` +
-                             `[center][img]https://i.imgur.com/Q2JgKiN.png[/img][/center]\n` +
+                             `[center][img]https://i.imgur.com/Oln4e7O.png[/img][/center]\n` +
                              `[b][u][center]Canine Services Detail Deployment Report[/center][/u][/b]\n\n` +
                              `[center][table=Arial]\n` +
                              `[tr][td][b]TIME AND DATE:[/b][/td][td][b]LOCATION:[/b][/td][td][b]CALLSIGN:[/b][/td][/tr]\n` +
@@ -113,6 +111,37 @@
             }, 2000);
         });
     });
+
+    function setCookie(name, value, days) {
+  const expires = new Date(Date.now() + days * 864e5).toUTCString();
+  document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + expires + '; path=/';
+}
+
+// Function to get a cookie
+function getCookie(name) {
+  return document.cookie.split('; ').reduce((r, v) => {
+    const parts = v.split('=');
+    return parts[0] === name ? decodeURIComponent(parts[1]) : r
+  }, '');
+}
+
+// Load cookies and assign to fields
+window.onload = function() {
+  const callsignField = document.getElementById('callsign');
+  const signedByField = document.getElementById('signedBy');
+
+  callsignField.value = getCookie('callsign') || '';
+  signedByField.value = getCookie('signedBy') || '';
+
+  // Save cookies on input
+  callsignField.addEventListener('input', function() {
+    setCookie('callsign', this.value, 365);
+  });
+
+  signedByField.addEventListener('input', function() {
+    setCookie('signedBy', this.value, 365);
+  });
+};
     </script>
 </body>
 </html>
